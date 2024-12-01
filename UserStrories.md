@@ -6,7 +6,7 @@
 4. [ ] As a visitor, I want to read the full blog content so that I can understand the topic. 
 5. [ ] As a visitor, I want to view the author's profile so that I can learn more about them.
 
-# User stories Registered User Journey (Non-Author)
+# User stories for Registered User Journey (Non-Author)
 
 6. [ ] As a visitor, I want to register using email and password so that I can create an account.
 7. [ ] As a visitor, I want to register or log in so that I can engage more deeply with the platform, like commenting or saving blogs.
@@ -15,7 +15,7 @@
 10. [ ] As a registered user, I want to like and comment on blogs so that I can share my thoughts with the author and other readers.
 11. [ ] As a registered user, I want to save blogs to my reading list so that I can revisit them later.
 
-# User stories Author Journey (Blog Creators)
+# User stories for Author Journey (Blog Creators)
 
 12. [ ] As an author, I want to write, format and draft a blog post so that I can share my ideas professionally.
 13. [ ] As an author, I want to add tags and categories to my blog so that it is easier for visitors to find

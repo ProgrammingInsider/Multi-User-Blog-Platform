@@ -1,0 +1,59 @@
+name: Continuous Integration Workflow
+
+on:
+    pull_request:
+        branches:
+            - main
+    push:
+        branches:
+            - main
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    Tests:
+        name: 'Run Tests'
+        runs-on: ubuntu-latest
+
+        steps:
+            # Step 1: Checkout the code
+            - name: Checkout Code
+              uses: actions/checkout@v2
+
+            # Step 2: Set up Node.js environment
+            - name: Install Node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: 20.11.1
+                cache: 'npm'
+
+            # Step 3: Install dependencies & tests
+            - name: Install Dependency & Test
+              working-directory: ./
+              run: |
+                npm install
+
+
+    Lint:
+        needs: Tests
+        name: 'Run linter'
+        runs-on: ubuntu-latest
+
+        steps:
+            # Step 1: Checkout the code
+            - name: Checkout Code
+              uses: actions/checkout@v2
+
+            # Step 2: Install dependencies
+            - name: 'Install Dependencies'
+              run: npm install
+
+            # Step 3: Run linting and tests
+            - name: 'Run linter'
+              run: npm run lint
+
+            # Step 4: Build the application
+            - name: Build Next.js app
+              run: npm run build

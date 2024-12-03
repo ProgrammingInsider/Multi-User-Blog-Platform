@@ -4,6 +4,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       # Step 1: Checkout Pull Request Code
       - name: Checkout Pull Request Code
@@ -35,4 +36,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROJECT_ID }} 
+          vercel-args: "--prod" 
           working-directory: ./

@@ -24,6 +24,6 @@ jobs:
           vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROD_PROJECT_ID }}
           working-directory: ./ 
-          wait-for-deploy: true
-          alias-domains: pr-${{ github.event.inputs.PR_number }}.staging.vercel.app
+          # wait-for-deploy: true
+          # alias-domains: pr-${{ github.event.inputs.PR_number }}.staging.vercel.app
 

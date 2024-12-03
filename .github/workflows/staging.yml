@@ -24,5 +24,5 @@ jobs:
           vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROD_PROJECT_ID }}
           working-directory: ./ 
-          alias-domains: pr-${{ github.event.inputs.PR_number }}.staging.dev
+          alias-domains: pr-${{ github.event.inputs.PR_number }}.staging.vercel.app
 

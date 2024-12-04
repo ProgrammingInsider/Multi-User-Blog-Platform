@@ -4,14 +4,37 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: amondnet/vercel-action@v25
+      # Step 1: Checkout Pull Request Code
+      - name: Checkout Pull Request Code
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      # Step 2: Install Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+
+      # Step 3: Install Dependencies
+      - name: Install Dependencies
+        run: |
+          npm install
+  
+      # Step 4: Build App
+      - name: Build App
+        run: |
+          npm run build
+      
+      # Step 5: Deploy to Production
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-args: '--prod' 
           vercel-org-id: ${{ secrets.ORG_ID}}
-          vercel-project-id: ${{ secrets.PROD_PROJECT_ID }} 
+          vercel-project-id: ${{ secrets.PROJECT_ID }} 
+          vercel-args: "--prod" 
           working-directory: ./
-          alias-domains: https://blogger-prod.vercel.app/

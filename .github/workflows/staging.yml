@@ -11,7 +11,7 @@ jobs:
     steps:
       # Step 1: Checkout Pull Request Code
       - name: Checkout Pull Request Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
             ref: refs/pull/${{ github.event.inputs.PR_number }}/merge
       
@@ -21,9 +21,6 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-args: '--preview'
           vercel-org-id: ${{ secrets.ORG_ID}}
-          vercel-project-id: ${{ secrets.STAGING_PROJECT_ID }}
+          vercel-project-id: ${{ secrets.PROJECT_ID }}
           working-directory: ./ 
-          alias-domains: pr-${{ github.event.inputs.PR_number }}.staging.dev
-

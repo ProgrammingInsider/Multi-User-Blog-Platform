@@ -30,10 +30,10 @@ jobs:
                 cache: 'npm'
 
             # Step 3: Install dependencies & tests
-            - name: Install Dependency & Test
+            - name: Install Dependency
               working-directory: ./
               run: |
-                npm install
+                npm install --legacy-peer-deps
             
             # Step 3: Unit and Intergation Tests
             - name: Tests

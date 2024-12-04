@@ -35,7 +35,7 @@ jobs:
               run: |
                 npm install --legacy-peer-deps
             
-            # Step 3: Unit and Intergation Tests
+            # Step 4: Unit and Intergation Tests
             - name: Tests
               working-directory: ./
               run: |
@@ -55,7 +55,7 @@ jobs:
 
             # Step 2: Install dependencies
             - name: 'Install Dependencies'
-              run: npm install
+              run: npm install --legacy-peer-deps
 
             # Step 3: Run linting and tests
             - name: 'Run linter'

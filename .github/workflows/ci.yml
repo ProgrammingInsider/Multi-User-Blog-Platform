@@ -34,7 +34,13 @@ jobs:
               working-directory: ./
               run: |
                 npm install
+            
+            # Step 3: Unit and Intergation Tests
+            - name: Tests
+              working-directory: ./
+              run: |
                 npm test
+
 
 
     Lint:

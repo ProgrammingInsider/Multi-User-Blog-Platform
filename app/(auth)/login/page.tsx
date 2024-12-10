@@ -50,7 +50,7 @@ const Login = () => {
                 </label>
         </div>
         <button className="primaryBtn w-full mt-6">Login</button>
-        <p className="para text-sm mt-4 text-center">Don't have any account? <Link href={'/register'} className="heading font-bold">SignUp</Link></p>
+        <p className="para text-sm mt-4 text-center">Don&#39;t have any account? <Link href={'/register'} className="heading font-bold">SignUp</Link></p>
     </form>
     <div className="relative col-span-1 sm:col-span-2 md:col-span-3 h-full">
     <Image src="/images/sideImage1.jpg" fill className="w-full h-full object-cover" alt="Side Image" />

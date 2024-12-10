@@ -3,19 +3,143 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #161618;
+  --color-background: #ffffff;
+  --color-primaryButtonText: #ffffff;
+  --color-secondaryButtonText: #161618;
+  --color-heading: #161618;
+  --color-section-bg: #fafafa;
+  --color-active-status: #54f3ad;
+  --color-draft-status: #ff4747;
+  --color-input-label: #646464;
+  --color-input-value: #5a6082;
+  --color-input-border: #b5b5b5;
+  --color-secondary: #f1f1f1;
+  --color-paragraph: #3e3e3e;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+/* @media (prefers-color-scheme: dark) {
+
+} */
+
+:root.dark {
+  --color-primary: #f1f1f1; /* Dark Mode */
+  --color-background: #161618;
+  --color-primaryButtonText: #161618;
+  --color-secondaryButtonText: #ffffff;
+  --color-heading: #f1f1f1;
+  --color-section-bg: #2c2c2e;
+  --color-active-status: #36b889;
+  --color-draft-status: #e05050;
+  --color-input-label: #b5b5b5;
+  --color-input-value: #a6a6d3;
+  --color-input-border: #646464;
+  --color-secondary: #3e3e3e;
+  --color-paragraph: #e1e1e1;
+}
+
+body{
+  background-color: var(--color-background);
+}
+
+@layer utilities{
+  .background{}
+  .primary{
+    color: var(--color-primary);
+  }
+
+  .primaryBg{
+    background-color: var(--color-primary);
+  }
+  
+  .heading{
+    color: var(--color-heading);
+  }
+
+  .active{
+    color: var(--color-active-status);
+  }
+
+  .activeBorder{
+    border: 1px solid var(--color-active-status);
+  }
+
+  .draft{
+    color: var(--color-draft-status);
+  }
+
+  .draftBorder{
+    border: 1px solid var(--color-draft-status);
+  }
+
+  .label{
+    color: var(--color-input-label);
+  }
+
+  .value{
+    color: var(--color-input-value);
+  }
+
+  .myBorder{
+    border: 1px solid var(--color-input-border);
+  }
+
+  .myBorder-2{
+    border: 2px solid var(--color-input-border);
+  }
+
+  .inputFocus{
+    border: 1px solid var(--color-primary);
+  }
+
+  .secondaryBg{
+    background-color: var(--color-secondary);
+  }
+
+  .para{
+    color: var(--color-paragraph);
+  }
+
+  .sectionBg{
+    background-color : var(--color-section-bg);
+  }
+
+  .primaryBtnText{
+    color: var(--color-primaryButtonText)
+  }
+
+  .secondaryBtnText{
+    color: var(--color-secondaryButtonText)
+  }
+
+  .asterik{
+    color: red;
+    font-weight: bold;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .primaryBtn {
+    @apply primaryBg primaryBtnText text-base font-medium rounded-lg py-2 px-3 hover:bg-opacity-80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200;
+  }
+  .secondaryBtn {
+    @apply secondaryBg secondaryBtnText text-base font-medium rounded-lg py-2 px-3 hover:bg-opacity-80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200;
+  }
+  .transparentBtn {
+    @apply bg-transparent secondaryBtnText myBorder text-base font-medium rounded-lg py-2 px-3 hover:bg-opacity-80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200;
+  }
+  .input{
+    @apply myBorder bg-transparent p-2 rounded-md value outline-none focus:inputFocus
+  }
+  .tags{
+    @apply flex gap-1
+  }
+
+  .tag{
+    @apply myBorder-2 py-1 px-4 rounded-lg font-semibold
+  }
+  .tagSelected{
+    @apply primaryBg primaryBtnText border-0
+  }
 }

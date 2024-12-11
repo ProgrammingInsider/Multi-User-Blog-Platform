@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,11 +13,14 @@
   --color-section-bg: #fafafa;
   --color-active-status: #54f3ad;
   --color-draft-status: #ff4747;
-  --color-input-label: #646464;
+  /* --color-input-label: #646464; */
+  --color-input-label: #494949;
   --color-input-value: #5a6082;
   --color-input-border: #b5b5b5;
   --color-secondary: #f1f1f1;
-  --color-paragraph: #3e3e3e;
+  /* --color-paragraph: #3e3e3e; */
+  --color-paragraph: #333;
+
 }
 
 
@@ -39,12 +44,24 @@
   --color-paragraph: #e1e1e1;
 }
 
-body{
+body {
+  font-family: 'Merriweather', serif;
+  font-size: 14px; 
+  line-height: 1.6;
   background-color: var(--color-background);
+  color: var(--color-paragraph); 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; 
+  color: var(--color-heading); 
 }
 
 @layer utilities{
-  .background{}
+  .background{
+    background-color: var(--color-background);
+  }
   .primary{
     color: var(--color-primary);
   }

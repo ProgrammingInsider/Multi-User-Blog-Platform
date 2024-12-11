@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #161618;
+  --color-primary: #0a0a18;
   --color-background: #ffffff;
   --color-primaryButtonText: #ffffff;
   --color-secondaryButtonText: #161618;

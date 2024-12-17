@@ -46,16 +46,36 @@
 
 body {
   font-family: 'Merriweather', serif;
-  font-size: 14px; 
+  font-size: 12px; 
   line-height: 1.6;
   background-color: var(--color-background);
   color: var(--color-paragraph); 
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   font-weight: 700; 
   color: var(--color-heading); 
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 4px; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c2c2c2;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #c2c2c2; 
 }
 
 @layer utilities{
@@ -79,7 +99,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .activeBorder{
-    border: 1px solid var(--color-active-status);
+    border: 2px solid var(--color-active-status);
   }
 
   .draft{
@@ -87,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .draftBorder{
-    border: 1px solid var(--color-draft-status);
+    border: 2px solid var(--color-draft-status);
   }
 
   .label{
@@ -96,6 +116,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .value{
     color: var(--color-input-value);
+  }
+
+  .tableBorder{
+    border-bottom: 1px solid var(--color-input-border);
   }
 
   .myBorder{
@@ -138,13 +162,13 @@ h1, h2, h3, h4, h5, h6 {
 
 @layer components {
   .primaryBtn {
-    @apply primaryBg primaryBtnText text-base font-medium rounded-lg py-2 px-3 hover:bg-opacity-80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200;
+    @apply primaryBg primaryBtnText text-base font-medium rounded-lg py-2 px-3 hover:bg-opacity-80;
   }
   .secondaryBtn {
-    @apply secondaryBg secondaryBtnText text-base font-medium rounded-lg py-2 px-3 hover:bg-opacity-80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200;
+    @apply secondaryBg secondaryBtnText text-base font-medium rounded-lg py-2 px-3 hover:bg-opacity-80;
   }
   .transparentBtn {
-    @apply bg-transparent secondaryBtnText myBorder text-base font-medium rounded-lg py-2 px-3 hover:bg-opacity-80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200;
+    @apply bg-transparent secondaryBtnText myBorder text-base font-medium rounded-lg py-2 px-3 hover:bg-opacity-80;
   }
   .input{
     @apply myBorder bg-transparent p-2 rounded-md value outline-none focus:inputFocus
@@ -157,6 +181,14 @@ h1, h2, h3, h4, h5, h6 {
     @apply myBorder-2 py-1 px-4 rounded-lg font-semibold
   }
   .tagSelected{
-    @apply primaryBg primaryBtnText border-0
+    @apply primaryBg primaryBtnText border-2 border-[var(--color-primary)]
+  }
+
+  .error-message{
+    @apply text-red-600 text-xs mt-1
+  }
+
+  .sideMenuLink{
+    @apply flex items-center gap-2 mb-1 heading font-bold text-base py-2 px-3 rounded-lg transition-all duration-100 cursor-pointer hover:secondaryBg 
   }
 }

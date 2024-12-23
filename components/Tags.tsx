@@ -1,10 +1,22 @@
+interface Tag {
+    id: string;
+    name: string;
+}
+interface BlogTag {
+    id: string;
+    tagId: string;
+    blogId: string;
+    tag: Tag;
+}
 
-const Tags = () => {
+const Tags = ({tags}:{tags:BlogTag[]}) => {
     return (
         <div className="tags">
-        <span className="tag tagSelected">Design</span>
-        <span className="tag">Research</span>
-        <span className="tag">Theory</span>
+            {tags?.map((blogTag, index) => (
+                <span key={index} className="tag">
+                {blogTag?.tag?.name}
+                </span>
+            ))}
         </div>
     )
 }

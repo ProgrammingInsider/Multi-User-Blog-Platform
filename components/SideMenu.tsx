@@ -4,7 +4,6 @@ import Link from 'next/link'
 import {useEffect, useState} from 'react'
 import { LuLayoutDashboard } from "react-icons/lu";
 import { MdAdd } from "react-icons/md";
-import { IoPersonAdd } from "react-icons/io5";
 import { FaBarsStaggered } from "react-icons/fa6";
 
 const SideMenu = () => {
@@ -39,20 +38,20 @@ const SideMenu = () => {
         href={'/dashboard'} 
         className={`sideMenuLink ${isMenuHide ? 'justify-center  py-1 px-1' :'justify-normal'}`}>
             <LuLayoutDashboard />
-            <span className={`${isMenuHide ? 'hidden' :'block'}`}>Dashboard</span>
+            <h1 className={`${isMenuHide ? 'hidden' :'block'}`}>Dashboard</h1>
         </Link>
         <Link 
             href={'/create-post'} 
             className={`sideMenuLink ${isMenuHide ? 'justify-center  py-1 px-1' :'justify-normal'}`}>
             <MdAdd />
-            <span className={`${isMenuHide ? 'hidden' :'block'}`}>Create Blog</span>
+            <h1 className={`${isMenuHide ? 'hidden' :'block'}`}>Create Blog</h1>
         </Link>
-        <Link 
+        {/* <Link 
             href={'/subscribers'} 
             className={`sideMenuLink ${isMenuHide ? 'justify-center  py-1 px-1' :'justify-normal'}`}>
             <IoPersonAdd />
             <span className={`${isMenuHide ? 'hidden' :'block'}`}>Subscribers</span>
-        </Link>
+        </Link> */}
     </nav>
   )
 }

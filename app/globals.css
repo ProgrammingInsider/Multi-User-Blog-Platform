@@ -5,23 +5,24 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #0a0a18;
-  --color-background: #ffffff;
-  --color-primaryButtonText: #ffffff;
-  --color-secondaryButtonText: #161618;
-  --color-heading: #161618;
-  --color-section-bg: #fafafa;
-  --color-active-status: #54f3ad;
-  --color-draft-status: #ff4747;
-  /* --color-input-label: #646464; */
-  --color-input-label: #494949;
-  --color-input-value: #5a6082;
-  --color-input-border: #b5b5b5;
-  --color-secondary: #f1f1f1;
-  /* --color-paragraph: #3e3e3e; */
-  --color-paragraph: #333;
-
+  --color-primary: #121212; 
+  --color-background: #ffffff; 
+  --color-primaryButtonText: #ffffff; 
+  --color-secondaryButtonText: #121212; 
+  --color-heading: #000000; 
+  --color-section-bg: #f7f7f7; 
+  --color-active-status: #27ae60; 
+  --color-draft-status: #e74c3c; 
+  --color-input-label: #6c6c6c; 
+  --color-input-value: #2d2d2d; 
+  --color-input-border: #dcdcdc; 
+  --color-secondary: #f3f3f3; 
+  --color-paragraph: #333333; 
+  --font-heading: "Charter", "Georgia", serif;
+  --font-paragraph: "Merriweather", "Georgia", serif;
+  --font-ui: "Inter", "Helvetica Neue", "Arial", sans-serif;
 }
+
 
 
 /* @media (prefers-color-scheme: dark) {
@@ -29,34 +30,54 @@
 } */
 
 :root.dark {
-  --color-primary: #f1f1f1; /* Dark Mode */
-  --color-background: #161618;
-  --color-primaryButtonText: #161618;
-  --color-secondaryButtonText: #ffffff;
-  --color-heading: #f1f1f1;
-  --color-section-bg: #2c2c2e;
-  --color-active-status: #36b889;
-  --color-draft-status: #e05050;
-  --color-input-label: #b5b5b5;
-  --color-input-value: #a6a6d3;
-  --color-input-border: #646464;
-  --color-secondary: #3e3e3e;
-  --color-paragraph: #e1e1e1;
+  --color-primary: #ffffff; 
+  --color-background: #121212; 
+  --color-primaryButtonText: #121212; 
+  --color-secondaryButtonText: #ffffff; 
+  --color-heading: #ffffff; 
+  --color-section-bg: #1e1e1e; 
+  --color-active-status: #27ae60; 
+  --color-draft-status: #e74c3c; 
+  --color-input-label: #a0a0a0; 
+  --color-input-value: #d1d1d1; 
+  --color-input-border: #3c3c3c; 
+  --color-secondary: #2b2b2b; 
+  --color-paragraph: #cccccc; 
+  --font-heading: "Charter", "Georgia", serif;
+  --font-paragraph: "Merriweather", "Georgia", serif;
+  --font-ui: "Inter", "Helvetica Neue", "Arial", sans-serif;
 }
 
+
 body {
-  font-family: 'Merriweather', serif;
-  font-size: 12px; 
+  /* font-family: 'Merriweather', serif; */
+  font-size: 16px; 
   line-height: 1.6;
   background-color: var(--color-background);
   color: var(--color-paragraph); 
   overflow-x: hidden;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+p, li, blockquote {
+  font-family: var(--font-paragraph);
+}
+
+button, input, select, textarea {
+  font-family: var(--font-ui);
+}
+
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
+  /* @apply font-serif; */
   font-weight: 700; 
   color: var(--color-heading); 
+}
+
+::placeholder{
+  font-size: 14px;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -111,6 +132,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .label{
+    font-size: 14px;
+    font-weight: bold;
     color: var(--color-input-label);
   }
 
@@ -158,6 +181,16 @@ h1, h2, h3, h4, h5, h6 {
     color: red;
     font-weight: bold;
   }
+
+  .cardPara {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-paragraph);
+  }
+  
 }
 
 @layer components {
@@ -174,11 +207,11 @@ h1, h2, h3, h4, h5, h6 {
     @apply myBorder bg-transparent p-2 rounded-md value outline-none focus:inputFocus
   }
   .tags{
-    @apply flex gap-1
+    @apply flex gap-1 sm:flex-wrap
   }
 
   .tag{
-    @apply myBorder-2 py-1 px-4 rounded-lg font-semibold
+    @apply myBorder-2 py-1 px-4 rounded-lg font-semibold text-sm
   }
   .tagSelected{
     @apply primaryBg primaryBtnText border-2 border-[var(--color-primary)]
@@ -190,5 +223,109 @@ h1, h2, h3, h4, h5, h6 {
 
   .sideMenuLink{
     @apply flex items-center gap-2 mb-1 heading font-bold text-base py-2 px-3 rounded-lg transition-all duration-100 cursor-pointer hover:secondaryBg 
+  }
+
+  .desc-content {
+    @apply text-base leading-relaxed para mt-4 mb-6 px-4 break-words;
+}
+
+.desc-content h1,
+.desc-content h2,
+.desc-content h3 {
+    @apply font-serif heading mb-2;
+}
+
+.desc-content h1 {
+    @apply text-4xl font-bold mb-4;
+}
+
+.desc-content h2 {
+    @apply text-3xl font-semibold mb-3;
+}
+
+.desc-content h3 {
+    @apply text-2xl font-medium mb-2;
+}
+
+.desc-content p {
+    @apply mb-4 para;
+}
+
+.desc-content blockquote {
+  @apply border-l-4 pl-4 italic text-black my-4 bg-white shadow-sm;
+}
+
+
+.desc-content ul,
+.desc-content ol {
+    @apply ml-8 mb-4 para;
+}
+
+.desc-content li {
+    @apply mb-2 list-disc;
+}
+
+.desc-content b {
+    @apply font-black;
+}
+
+.desc-content img {
+    @apply max-w-full h-auto mt-4 mb-6;
+}
+
+/* Styling for Next.js Image component */
+.desc-content Image {
+    @apply max-w-full h-auto mt-4 mb-6 rounded-lg shadow-md;
+}
+
+.desc-content table {
+  @apply w-full text-sm border-collapse bg-gray-100 text-black shadow-sm my-4;
+}
+
+.desc-content th,
+.desc-content td {
+  @apply p-2 border-b border-gray-300;
+}
+
+.desc-content th {
+  @apply bg-gray-200 text-gray-800;
+}
+
+
+
+/* Styling for preformatted text */
+.desc-content pre {
+    @apply bg-gray-900 text-white p-4 rounded-md font-mono text-sm overflow-x-auto mt-4 mb-6;
+}
+
+/* Styling for inline code */
+.desc-content code {
+    @apply bg-gray-100 text-gray-800 px-1 py-0.5 rounded-sm font-mono;
+}
+
+}
+
+
+
+@layer components {
+  /* 404 Page Styles */
+  .not-found-container {
+    @apply w-full h-screen flex flex-col justify-center items-center bg-gray-50 sectionBg;
+  }
+
+  .not-found-heading {
+    @apply text-5xl font-bold text-primary heading;
+  }
+
+  .not-found-message {
+    @apply text-xl text-gray-600 mb-4;
+  }
+
+  .not-found-image {
+    @apply max-w-full h-auto;
+  }
+
+  .not-found-link {
+    @apply text-primary hover:underline;
   }
 }

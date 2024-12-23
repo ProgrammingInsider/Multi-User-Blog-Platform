@@ -1,24 +1,115 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// generator client {
+//   provider = "prisma-client-js"
+// }
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// datasource db {
+//   provider = "sqlite"
+//   url      = env("DATABASE_URL")
+// }
+
+// model User{
+//   id String @id @default(uuid())
+//   firstName String
+//   lastName String
+//   email String @unique
+//   password String
+//   createdAt DateTime @default(now())
+//   blogs    Blog[]   @relation("UserBlogs")
+// }
+
+// model Blog {
+//   id          String      @id @default(uuid())
+//   blogName    String
+//   hook        String
+//   blogCover   String 
+//   blogCoverPublicId String?
+//   desc        String  
+//   status      Boolean     @default(true)
+//   createdAt   DateTime    @default(now())
+//   updatedAt   DateTime    @updatedAt
+//   userId      String
+//   user        User        @relation("UserBlogs", fields: [userId], references: [id])
+//   blogTags    BlogTag[] 
+
+//   @@unique([id, userId])
+// }
+
+// model Tag {
+//   id       String    @id @default(uuid())
+//   name     String    @unique
+//   blogTags BlogTag[]
+// }
+
+// model BlogTag {
+//   id      String @id @default(uuid())
+//   blogId  String
+//   tagId   String
+//   blog    Blog   @relation(fields: [blogId], references: [id], onDelete: Cascade)
+//   tag     Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+//   @@unique([blogId, tagId])
+// }
+
+
+// model Subscriber {
+//   id       String    @id @default(uuid())
+//   email     String    @unique
+//   createdAt   DateTime    @default(now())
+// }
+
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id String @id @default(uuid())
-  firstName String
-  lastName String
-  email String @unique
-  password String
-  refreshToken String?
+model User {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  firstName   String
+  lastName    String
+  email       String    @unique
+  password    String
+  createdAt   DateTime  @default(now())
+  blogs       Blog[]    @relation("UserBlogs")
+}
+
+model Blog {
+  id               String     @id @default(auto()) @map("_id") @db.ObjectId
+  blogName         String
+  hook             String
+  blogCover        String 
+  blogCoverPublicId String?
+  desc             String  
+  status           Boolean    @default(true)
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  userId           String     @db.ObjectId // Add @db.ObjectId here
+  user             User       @relation("UserBlogs", fields: [userId], references: [id])
+  blogTags         BlogTag[] 
+}
+
+model Tag {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name     String    @unique
+  blogTags BlogTag[]
+}
+
+model BlogTag {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  blogId  String  @db.ObjectId // Add @db.ObjectId here
+  tagId   String  @db.ObjectId // Add @db.ObjectId here
+  blog    Blog    @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  tag     Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@unique([blogId, tagId])
+}
+
+model Subscriber {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
   createdAt DateTime @default(now())
 }

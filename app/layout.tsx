@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import ContextAPI from "@/context/context";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,6 +22,8 @@ export default function RootLayout({
           <main>
           {children}
           </main>
+          <div className="h-2 bg-gradient-to-r from-[#F7E16A] to-[#AE6CE3]"></div>
+          <Footer/>
         </body>
       </ContextAPI>
     </html>

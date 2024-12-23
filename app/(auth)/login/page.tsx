@@ -12,7 +12,8 @@ import { startTransition } from "react";
 import { useGlobalContext } from '@/context/context';
 
 const initialState: {
-    message:string | null, errors?: Record<string, string[] | undefined>, 
+    message:string | null, 
+    errors?: Record<string, string[] | undefined>, 
     isLoggedIn?:boolean,
     accessToken?: string | null,
     userId?: string | null
@@ -56,7 +57,7 @@ const Login = () => {
     },[state])
 
 return (
-    <div className="grid grid-cols-5 gap-8 mx-5 md:gap-12 max-w-screen"  style={{ height: 'calc(100vh - 4rem)' }}>
+    <div className="grid grid-cols-5 gap-8 mx-5 md:gap-12 max-w-screen mb-20"  style={{ height: 'calc(100vh - 4rem)' }}>
     <form onSubmit={handleSubmit} method='POST' className="col-span-5 max-w-lg sm:max-w-4xl mt-8 sm:mt-16 sm:col-span-3 md:col-span-2">
         <h1 className="heading text-2xl font-bold">Welcome!</h1>
         <p className="para mb-5 mt-2">Log In your account.</p>

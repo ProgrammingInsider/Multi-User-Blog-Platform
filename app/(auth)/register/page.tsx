@@ -35,7 +35,7 @@ const Register = () => {
     }
 
   return (
-    <div className="grid grid-cols-5 gap-8 mx-5 md:gap-12 max-w-screen"  style={{ height: 'calc(100vh - 4rem)' }}>
+    <div className="grid grid-cols-5 gap-8 mx-5 md:gap-12 max-w-screen h-auto mb-20">
         <form onSubmit={handleSubmit} action={formAction} method='POST' className="col-span-5 max-w-lg sm:max-w-4xl mt-8 sm:mt-16 sm:col-span-3 md:col-span-2">
             <h1 className="heading text-2xl font-bold">Register!</h1>
             <p className="para mb-5 mt-2">Create a new account.</p>

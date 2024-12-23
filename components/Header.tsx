@@ -71,7 +71,7 @@ const Header = () => {
                     <div className={`flex flex-col pt-24 items-center gap-3 text-base fixed top-0 left-0 bottom-0 background sm:bg-transparent w-full z-10 sm:flex-row sm:pt-0 sm:relative ${isMenuVisible ? 'flex' : 'hidden sm:flex'} `}>
                         <IoCloseSharp className='fixed right-4 top-4 text-2xl font-bold cursor-pointer sm:hidden' onClick={() => setIsMenuVisible(false)} />
                         <Link href={"/"} className={`font-semibold heading `} onClick={() => setIsMenuVisible(false)}>Home</Link>
-                        <Link href={"#"} className='font-semibold heading' onClick={() => setIsMenuVisible(false)}>Newsletter</Link>
+                        <Link href={"#newsletter"} className='font-semibold heading' onClick={() => setIsMenuVisible(false)}>Newsletter</Link>
                         {
                             userId
                             ? (<Link href={"/create-post"} className='transparentBtn text-base flex items-center' onClick={() => setIsMenuVisible(false)}>

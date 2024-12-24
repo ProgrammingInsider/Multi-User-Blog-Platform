@@ -1,6 +1,6 @@
 'use server';
 import z, { ZodError } from 'zod';
-import cloudinary from './cloudinary';
+import cloudinary from './cloudinary.js';
 import prisma from './db';
 import { cookies } from 'next/headers';
 import jwt, { JwtPayload } from 'jsonwebtoken';
@@ -283,7 +283,6 @@ export const FetchBlog = async (): Promise<FetchBlogResponse> => {
 };
 
 export const FetchPublicBlog = async (): Promise<FetchBlogResponse> => {
-    let userId: string | null = null;
 
     try {
 

@@ -2,7 +2,13 @@ import { getBlog } from '@/utils/getBlog';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-const ReadBlog = async ({params}:{params:{id:string}}) => {
+interface ReadBlogProps {
+  params: Promise<{
+    id: string;
+  }>
+}
+
+const ReadBlog = async ({ params }: ReadBlogProps) => {
   const {id} = await params;
   const blog = await getBlog(id);
   

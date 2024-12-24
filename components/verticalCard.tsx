@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import Tags from "@/components/Tags"
 import { format, isValid } from "date-fns";
@@ -25,13 +24,12 @@ const VerticalCard = ({blog}:{blog:Blog}) => {
     <div className="w-full">
     <Link href={`/blog/${blog?.id}`} className="w-full grid grid-cols-6 gap-2 h-40">
         <div className="w-full overflow-y-hidden mb-4 col-span-2">
-            <Image 
+            <img 
                 src={imageSrc} 
                 className="w-full h-full object-cover" 
                 width={800} 
                 height={300} 
                 alt={`${blog?.blogName}`}
-                priority
             />
         </div>
         <div className="col-span-4">

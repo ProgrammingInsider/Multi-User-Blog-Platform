@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { FetchBlog } from '@/utils/profileActions';
 import { format } from 'date-fns';
 import DeleteBlogBtn from '@/components/DeleteBlogBtn';
@@ -57,7 +56,7 @@ const Dashboard = async() => {
                   <td className="tableBorder px-4 py-2">
                     <div className="flex gap-4 items-center text-sm">
                       <div className="w-8 h-8">
-                        <Image
+                        <img
                           src={blog.blogCover}
                           alt="Blog Image"
                           width={40}

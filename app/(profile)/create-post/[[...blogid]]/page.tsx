@@ -30,7 +30,13 @@ const placeholderValues: placeholderValuesType = {
   blogTags: []
 }
 
-const CreateBlog = ({params}:{params:{blogid:string}}) => {
+type CreateBlogProps = {
+  params: Promise<{
+      blogid?: string | string[] | undefined;
+  }>;
+};
+
+const CreateBlog = ({ params }: CreateBlogProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [action, setAction] = useState<string>('');
@@ -41,17 +47,17 @@ const CreateBlog = ({params}:{params:{blogid:string}}) => {
   const [blogid, setBlogid] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchBlogId = async () => {
-      
-      const resolvedBlogId = await params.blogid[0] ;  
-      console.log(resolvedBlogId);
-      
-      setBlogid(resolvedBlogId);
+    const resolveParams = async () => {
+        const resolvedParams = await params;
+        const resolvedBlogId = Array.isArray(resolvedParams.blogid)
+            ? resolvedParams.blogid[0]
+            : resolvedParams.blogid;
+        setBlogid(resolvedBlogId || null);
     };
 
-    fetchBlogId();
-  }, [params]);
-  // const blogid = params.blogid?.[0];
+    resolveParams();
+  }, [params]); 
+  
   const [state, formAction] = useActionState(blogid ? UpdatePost : CreatePost, initialState);
   
   useEffect(() => {

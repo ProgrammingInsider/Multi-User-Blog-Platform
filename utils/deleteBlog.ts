@@ -8,7 +8,6 @@ import cloudinary from "./cloudinary";
 
 export const DeleteBlog = async (formData: FormData): Promise<void> => {
   const id: string = formData.get("id") as string;
-  console.log(id);
   
   try {
     const cookiesStore = await cookies();

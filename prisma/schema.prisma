@@ -90,6 +90,8 @@ model Blog {
   userId           String     @db.ObjectId // Add @db.ObjectId here
   user             User       @relation("UserBlogs", fields: [userId], references: [id])
   blogTags         BlogTag[] 
+
+  @@unique([id, userId])
 }
 
 model Tag {

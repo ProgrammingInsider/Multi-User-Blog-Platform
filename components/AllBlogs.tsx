@@ -4,7 +4,7 @@ import { Blog } from "@/utils/types";
 
 const AllBlogs = ({allBlogs}:{allBlogs:Blog[]}) => {
   return (
-    <div className="w-11/12 mx-auto max-w-7xl mt-16 mb-20 sm:mt-8">
+    <div className="w-11/12 mx-auto max-w-7xl mt-8 sm:mt-0 mb-20">
         <h1 className="text-xl mb-4">All blog posts</h1>
         <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
             {

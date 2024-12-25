@@ -1,4 +1,11 @@
 import SideMenu from "@/components/SideMenu";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blogger | Create a New Blog Post",
+  description: "Start sharing your ideas on Blogger by creating a new blog post. Express yourself and connect with a global audience today.",
+};
+
 
 const layout = ({
     children,

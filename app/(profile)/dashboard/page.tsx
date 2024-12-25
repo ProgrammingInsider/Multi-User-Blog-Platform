@@ -6,6 +6,13 @@ import DeleteBlogBtn from '@/components/DeleteBlogBtn';
 import EditBlogBtn from '@/components/EditBlogBtn';
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blogger | Your Dashboard",
+  description: "Manage your blog posts effortlessly with Blogger's Dashboard. View, edit, or delete your blogs and track your content at a glance.",
+};
+
 
 interface Blog {
   id: string;

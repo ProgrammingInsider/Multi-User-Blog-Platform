@@ -1,11 +1,31 @@
 import { getBlog } from '@/utils/getBlog';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import type { Metadata } from "next";
 
 interface ReadBlogProps {
   params: Promise<{
     id: string;
   }>
+}
+
+export async function generateMetadata({ params }: ReadBlogProps): Promise<Metadata> {
+  const { id } = await params;
+  const blog = await getBlog(id);
+
+  // Default metadata
+  if (!blog?.result) {
+    return {
+      title: 'Blogger | Discover and Share Blogs',
+      description: 'Explore a wide range of blogs on Blogger, the platform where users can create, share, and engage with diverse content from all over the world.',
+    };
+  }
+
+  // Dynamic metadata based on blog content
+  return {
+    title: blog.result.blogName || 'Blogger | Discover and Share Blogs',
+    description: blog.result.hook || 'Explore a wide range of blogs on Blogger.',
+  };
 }
 
 const ReadBlog = async ({ params }: ReadBlogProps) => {

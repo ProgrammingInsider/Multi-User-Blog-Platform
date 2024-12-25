@@ -69,7 +69,7 @@ const Footer = () => {
         </div>  
 
         <div className="flex gap-5 justify-between items-center my-3">
-            <p className="para text-sm">© 2077 Untitled UI. All rights reserved.</p>
+            <p className="para text-sm">© 2025 developed by <Link href={"https://amanuelabera.vercel.app/"} target="_blank" className="hover:underline">Amanuel Abera</Link>. All rights reserved.</p>
             <div className="flex gap-3 items-center">
                 <Link href={""} className="text-xl">
                     <FaXTwitter />

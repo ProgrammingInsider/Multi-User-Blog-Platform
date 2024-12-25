@@ -4,7 +4,7 @@ import jwt, { JwtPayload } from "jsonwebtoken";
 import { cookies } from "next/headers";
 import prisma from "./db";
 import { revalidatePath } from "next/cache";
-import cloudinary from "./cloudinary.js";
+import cloudinary from "@/utils/cloudinary";
 
 export const DeleteBlog = async (formData: FormData): Promise<void> => {
   const id: string = formData.get("id") as string;

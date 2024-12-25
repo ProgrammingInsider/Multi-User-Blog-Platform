@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { FetchBlog } from '@/utils/profileActions';
 import { format } from 'date-fns';
 import DeleteBlogBtn from '@/components/DeleteBlogBtn';

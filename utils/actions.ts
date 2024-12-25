@@ -5,7 +5,6 @@ import prisma from "./db";
 import bcrypt from "bcryptjs"
 import jwt from 'jsonwebtoken'
 import { cookies } from 'next/headers';
-import { revalidatePath } from "next/cache";
 
 type RegisterResponse = {
     message: string;

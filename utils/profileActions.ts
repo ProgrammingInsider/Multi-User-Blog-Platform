@@ -1,6 +1,6 @@
 'use server';
 import z, { ZodError } from 'zod';
-import cloudinary from './cloudinary.js';
+import cloudinary from '@/utils/cloudinary';
 import prisma from './db';
 import { cookies } from 'next/headers';
 import jwt, { JwtPayload } from 'jsonwebtoken';

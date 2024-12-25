@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import DeleteBlogBtn from '@/components/DeleteBlogBtn';
 import EditBlogBtn from '@/components/EditBlogBtn';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Blog {
   id: string;
@@ -58,12 +59,13 @@ const Dashboard = async() => {
                   <td className="tableBorder px-4 py-2">
                     <div className="flex gap-4 items-center text-sm">
                       <div className="w-8 h-8">
-                        <img
+                        <Image
                           src={blog.blogCover}
                           alt="Blog Image"
                           width={40}
                           height={40}
                           className="w-full h-full object-cover"
+                          priority
                         />
                       </div>
                       <Link href={`/blog/${blog.id}`} className="truncate max-w-xs hover:underline">{blog.blogName}</Link>

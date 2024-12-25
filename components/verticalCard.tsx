@@ -3,6 +3,7 @@ import Tags from "@/components/Tags"
 import { format, isValid } from "date-fns";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { Blog } from "@/utils/types";
+import Image from 'next/image';
 
 const VerticalCard = ({blog}:{blog:Blog}) => {
     const createdAt = new Date(blog?.createdAt);
@@ -22,14 +23,15 @@ const VerticalCard = ({blog}:{blog:Blog}) => {
     const imageSrc = isValidUrl(blog?.blogCover) ? blog?.blogCover : "";
   return (
     <div className="w-full">
-    <Link href={`/blog/${blog?.id}`} className="w-full grid grid-cols-6 gap-2 h-40">
-        <div className="w-full overflow-y-hidden mb-4 col-span-2">
-            <img 
+    <Link href={`/blog/${blog?.id}`} className="w-full grid grid-cols-6 gap-2 h-auto min-h-40">
+        <div className="w-full h-full overflow-y-hidden mb-4 col-span-2">
+            <Image 
                 src={imageSrc} 
                 className="w-full h-full object-cover" 
                 width={800} 
                 height={300} 
                 alt={`${blog?.blogName}`}
+                priority
             />
         </div>
         <div className="col-span-4">

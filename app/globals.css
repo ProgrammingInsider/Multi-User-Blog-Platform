@@ -207,7 +207,7 @@ h1, h2, h3, h4, h5, h6 {
     @apply myBorder bg-transparent p-2 rounded-md value outline-none focus:inputFocus
   }
   .tags{
-    @apply flex gap-1 sm:flex-wrap
+    @apply flex gap-1 flex-wrap
   }
 
   .tag{

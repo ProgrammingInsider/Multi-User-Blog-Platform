@@ -222,7 +222,7 @@ const CreateBlog = ({ params }: CreateBlogProps) => {
           )}
         </div>
         <p className='label mb-3'>Tags&nbsp;<span className='asterik'>*</span></p>
-        <div className="myBorder rounded-lg h-24 p-3 gap-2 items-center cursor-pointer mb-5 flex flex-wrap justify-start">
+        <div className="myBorder rounded-lg min-h-24 h-auto p-3 gap-2 items-center cursor-pointer mb-5 flex flex-wrap justify-start">
           {['Design', 'Research', 'Technology', 'Politics','Development'].map((tag) => (
             <span
               key={tag}
@@ -246,9 +246,9 @@ const CreateBlog = ({ params }: CreateBlogProps) => {
         )}
 
         <div className="flex justify-between mt-10">
-          <button type="submit" onClick={() => setAction('cancel')} className="transparentBtn">
+          {/* <button type="submit" onClick={() => setAction('cancel')} className="transparentBtn">
             Cancel
-          </button>
+          </button> */}
           <div className="flex gap-7">
             <button type="submit" onClick={() => setAction('draft')} className="secondaryBtn">
               Save as Draft

@@ -3,6 +3,7 @@ import Tags from "@/components/Tags";
 import { format, isValid } from "date-fns";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { Blog } from "@/utils/types";
+import Image from 'next/image';
 
 const SingleCard = ({ blog }: { blog: Blog }) => {
   const createdAt = new Date(blog?.createdAt);
@@ -26,12 +27,13 @@ const SingleCard = ({ blog }: { blog: Blog }) => {
   return (
         <Link href={`/blog/${blog?.id}`} className="w-full grid grid-cols-6 gap-2 h-auto max-w-full">
         <div className="w-full overflow-hidden col-span-6">
-            <img
+            <Image
             src={imageSrc}
             className="w-full h-full object-cover max-h-96"
             width={800}
             height={300}
             alt={`${blog?.blogName}`}
+            priority
             />
         </div>
         <div className="col-span-6">
